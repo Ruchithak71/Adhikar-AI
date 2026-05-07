@@ -212,7 +212,6 @@ Backend → `http://127.0.0.1:8001`
 - Real CIS/DOMS API integration
 - Character-level PDF source highlighting
 - Celery + Redis async job queues
-- Multi-reviewer concurrency support
 - Government department registry database
 - Automated deadline alert scheduling
 - Regional language support (Kannada, Tamil, Telugu)
