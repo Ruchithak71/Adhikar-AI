@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+python-dotenv
+python-dateutil
+alembic
+pydantic
+google-generativeai
+resend
+pymupdf

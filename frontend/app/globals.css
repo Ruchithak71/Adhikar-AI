@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Sans:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fraunces: "Fraunces", Georgia, serif;
+  --font-ibm-mono: "IBM Plex Mono", monospace;
+  --font-instrument: "Instrument Sans", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #07090f;
+  color: #e2e8f4;
+  font-family: var(--font-instrument);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1220;
+}
+::-webkit-scrollbar-thumb {
+  background: #1d2b3d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #243447;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+}
+
+/* Amber glow utility */
+.amber-glow {
+  text-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
+}
+
+/* Confidence bar animation */
+.confidence-bar {
+  animation: barFill 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes barFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #111827 0%,
+    #162033 50%,
+    #111827 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* PDF mock page styling */
+.pdf-mock-page {
+  background: #f8f5ef;
+  color: #1a1a1a;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Status badge variants */
+.badge-pending {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+.badge-verified {
+  background: rgba(16, 217, 168, 0.1);
+  color: #10d9a8;
+  border: 1px solid rgba(16, 217, 168, 0.2);
+}
+.badge-rejected {
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+.badge-overdue {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fc8181;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Directive card hover */
+.directive-card {
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+.directive-card:hover {
+  background: rgba(22, 32, 51, 0.8);
+  border-left-color: rgba(245, 166, 35, 0.3);
+}
+.directive-card.active {
+  background: rgba(22, 32, 51, 1);
+  border-left-color: #f5a623;
+}
+
+/* Page highlight effect */
+.pdf-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(245, 166, 35, 0.15);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  border-radius: 2px;
+  animation: highlightPulse 2s ease-in-out infinite;
+}
+
+@keyframes highlightPulse {
+  0%, 100% {
+    background: rgba(245, 166, 35, 0.1);
+  }
+  50% {
+    background: rgba(245, 166, 35, 0.2);
+  }
+}
+
+/* Focus styles */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(245, 166, 35, 0.3);
+}
+
+/* Table row hover */
+.dashboard-row {
+  transition: background 0.15s ease;
+}
+.dashboard-row:hover {
+  background: rgba(22, 32, 51, 0.6);
+}
+
+/* Approve button glow */
+.btn-approve:hover {
+  box-shadow: 0 0 20px rgba(16, 217, 168, 0.25);
+}
+.btn-reject:hover {
+  box-shadow: 0 0 20px rgba(248, 113, 113, 0.25);
+}
